@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/Roniya/IdeaProjects/testngbasics">
+<suite name="Smoke suite">
+    <listeners>
+        <listener class-name="com.obsqura.extentreportlistener.ExtentReportListener"/>
+    </listeners>
+    <test name="Parameter Test">
         <parameter name="browser" value="chrome"/>
         <parameter name="url" value="http://demowebshop.tricentis.com/"/>
         <classes>
             <class name="com.obsqura.testngcommands.SeleniumTestNG">
                 <methods>
-                    <exclude name="verifyUserLogin"/>
+                    <include name="verifyUserLogin"/>
                     <include name="verifyTitle"/>
-                </methods>
-            </class>
-            <class name="com.obsqura.testngcommands.ExtentReportLogging">
-                <methods>
-                    <exclude name="verifyTitle"/>
                 </methods>
             </class>
         </classes>

@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/Roniya/IdeaProjects/testngbasics">
+<suite name="Regression Suite">
+    <test  name="Functional Test" parallel="tests" thread-count="3">
+        <groups>
+            <run>
+                <include name="regressionTest"/>
+                <exclude name = "sanityTest"/>
+            </run>
+        </groups>
         <classes>
             <class name="com.obsqura.testngcommands.HomeTest">
-                <methods>
-                    <exclude name="verifyHomePageTitle"/>
+                <!--<methods>
+                    <include name="verifyHomePageTitle"/>
                     <include name="verifyHomePageUserMenu"/>
-                </methods>
+                </methods>-->
             </class>
             <class name="com.obsqura.testngcommands.LoginTest">
-                <methods>
+               <!-- <methods>
                     <include name="verifyLoginPageTitle"/>
-                    <exclude name="verifyValidLogin"/>
-                </methods>
+                    <include name="verifyValidLogin"/>
+                </methods>-->
             </class>
+            <!-- <class name="com.obsqura.testngcommands.SeleniumTestNG">
+              <methods>
+                  <include name="verifyUserLogin"/>
+              </methods>
+          </class>-->
         </classes>
     </test>
 </suite>
